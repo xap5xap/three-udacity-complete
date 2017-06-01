@@ -10,10 +10,16 @@ var clock = new THREE.Clock();
 var teapotSize = 400;
 
 function createMaterial() {
+
+	var texture = THREE.ImageUtils.loadTexture('media/img/cs291/textures/water.jpg');
+	
 	// MATERIALS
 	// Student: use the texture '/media/img/cs291/textures/water.jpg'
-	var material = new THREE.MeshPhongMaterial( { shininess: 50 } );
-	material.color.setHSL( 0.09, 0.46, 0.2 );
+	var material = new THREE.MeshPhongMaterial( { shininess: 50} );
+	// material.specularMap = texture;
+	material.map = texture;
+	// material.color.setHSL( 0.09, 0.46, 0.2 );
+	material.color.setHSL( 0.09, 0.46, 0.8 );
 	material.ambient.copy( material.color );
 	material.specular.setHSL( 0.09, 0.46, 1.0 );
 
